@@ -1,0 +1,13 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>motion-keys page fixture</title>
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<canvas id="stage" width="320" height="180"></canvas>
+<script type="module">
+  import { definePage, createKeysPage, validateKeys } from "/dist/index.js";
+  // A 20x20 orange card texture built in-page (no external file).
+  const tex = document.createElement("canvas"); tex.width = 40; tex.height = 40;
+  const c = tex.getContext("2d"); c.fillStyle = "#ffb000"; c.fillRect(0, 0, 40, 40); c.fillStyle = "#fff"; c.fillRect(0, 0, 20, 8);
+  const keys = validateKeys(await (await fetch("/test/fixture/keys.json")).json());
+  definePage(createKeysPage(keys, { card: tex }));
+</script>

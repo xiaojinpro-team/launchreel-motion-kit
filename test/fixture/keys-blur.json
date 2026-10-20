@@ -1,0 +1,12 @@
+{
+  "schema": "xjp.motion-keys.v1",
+  "fps": 24,
+  "size": [320, 180],
+  "layers": [
+    { "id": "acc", "texture": "card", "anchor": [0.5, 0.5], "frames": [], "motionBlur": true,
+      "segments": { "x": [ { "f0": 0, "f1": 10, "from": 30, "to": 290, "ease": "linear" } ], "y": [ { "f0": 0, "f1": 10, "from": 40, "to": 40, "ease": "linear" } ] } },
+    { "id": "dir", "texture": "card", "anchor": [0.5, 0.5], "frames": [], "motionBlur": { "method": "directional", "shutter": 1 },
+      "segments": { "x": [ { "f0": 0, "f1": 10, "from": 30, "to": 290, "ease": "linear" } ], "y": [ { "f0": 0, "f1": 10, "from": 90, "to": 90, "ease": "linear" } ] } },
+    { "id": "rad", "texture": "card", "anchor": [0.5, 0.5], "frames": [ { "f": 0, "x": 250, "y": 140, "sx": 1, "sy": 1, "rot": 0, "opacity": 1 } ], "motionBlur": { "method": "radial", "shutter": 1, "strength": 2, "center": [160, 90] } }
+  ]
+}

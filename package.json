@@ -1,0 +1,50 @@
+{
+  "name": "@launchreel/motion-kit",
+  "version": "0.5.0",
+  "description": "41 seekable motion components for launch films (typing, kinetic titles, captions, logo reveals, transitions, device frames, data, diagrams) plus a headless frame renderer. Pure, deterministic, no runtime dependencies.",
+  "keywords": ["motion", "animation", "video", "launch-video", "kinetic-typography", "captions", "frame-renderer", "headless", "playwright", "ffmpeg", "launchreel"],
+  "type": "module",
+  "license": "MIT",
+  "author": "LaunchReel <support@launchreel.ai> (https://launchreel.ai/?utm_source=npm)",
+  "homepage": "https://launchreel.ai/?utm_source=npm",
+  "repository": { "type": "git", "url": "git+https://github.com/xiaojinpro-team/launchreel-motion-kit.git" },
+  "bugs": { "url": "https://github.com/xiaojinpro-team/launchreel-motion-kit/issues" },
+  "engines": { "node": ">=20" },
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+    "./vocab": { "types": "./dist/vocab/index.d.ts", "default": "./dist/vocab/index.js" },
+    "./node": { "types": "./dist/node.d.ts", "default": "./dist/node.js" },
+    "./compat": { "types": "./dist/compat.d.ts", "default": "./dist/compat.js" },
+    "./motion-vocab.js": "./dist/motion-vocab.js",
+    "./motion-vocab-demo.js": "./dist/motion-vocab-demo.js",
+    "./catalogue.json": "./dist/motion-catalogue.json",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "motion-render": "./bin/motion-render.mjs",
+    "motion-encode": "./bin/motion-encode.mjs",
+    "motion-compare": "./bin/motion-compare.mjs",
+    "motion-fit": "./bin/motion-fit.mjs",
+    "motion-presets": "./bin/motion-presets.mjs"
+  },
+  "files": ["dist", "bin", "README.md", "LICENSE", "CHANGELOG.md"],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json && node scripts/bundle-vocab.mjs",
+    "prepack": "npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "test:unit": "npm run build && node --test test/keys.test.mjs test/compat.test.mjs test/protocol.test.mjs test/blur.test.mjs test/vocab.test.mjs"
+  },
+  "peerDependencies": { "playwright-core": ">=1.40", "pngjs": ">=6" },
+  "peerDependenciesMeta": { "playwright-core": { "optional": true }, "pngjs": { "optional": true } },
+  "devDependencies": {
+    "@types/node": "^24",
+    "@types/pngjs": "^6.0.5",
+    "playwright-core": "1.63.0",
+    "pngjs": "^7.0.0",
+    "typescript": "^5"
+  }
+}

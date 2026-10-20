@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>motion-kit fixture</title>
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<canvas id="stage" width="320" height="180"></canvas>
+<script type="module">
+  import { definePage } from "/dist/index.js";
+  // A moving rectangle + frame label drawn from __meta. Pure in t.
+  const meta = { fps: 24, width: 320, height: 180, duration_s: 0.5, shutter: 0, subframes: 1 };
+  const canvas = document.getElementById("stage");
+  definePage({
+    meta,
+    async load() { canvas.width = meta.width; canvas.height = meta.height; },
+    frame(t) {
+      const m = window.__meta, ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#101820"; ctx.fillRect(0, 0, m.width, m.height);
+      const u = Math.min(1, t / m.duration_s);
+      ctx.fillStyle = "#ffb000"; ctx.fillRect(20 + u * (m.width - 100), 60, 60, 60);
+      ctx.fillStyle = "#ffffff"; ctx.font = "16px Arial, sans-serif";
+      ctx.fillText(`${m.width}x${m.height} @ ${m.fps} fps  t=${t.toFixed(3)}`, 12, 24);
+    },
+  });
+</script>

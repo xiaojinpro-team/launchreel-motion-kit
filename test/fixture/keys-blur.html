@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>motion-keys blur fixture</title>
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<canvas id="stage" width="320" height="180"></canvas>
+<script type="module">
+  import { definePage, createKeysPage, validateKeys } from "/dist/index.js";
+  const tex = (color, mark) => {
+    const c = document.createElement("canvas"); c.width = 40; c.height = 40;
+    const g = c.getContext("2d"); g.fillStyle = color; g.fillRect(0, 0, 40, 40); g.fillStyle = "#fff"; g.fillRect(0, 0, mark, 8);
+    return c;
+  };
+  const keys = validateKeys(await (await fetch("/test/fixture/keys-blur.json")).json());
+  definePage(createKeysPage(keys, { card: tex("#ffb000", 20), bar: tex("#2060c0", 0) }));
+</script>

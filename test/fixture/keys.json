@@ -1,0 +1,38 @@
+{
+  "schema": "xjp.motion-keys.v1",
+  "fps": 24,
+  "size": [
+    320,
+    180
+  ],
+  "layers": [
+    {
+      "id": "card",
+      "texture": "card",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "frames": [
+        {
+          "f": 0,
+          "x": 60,
+          "y": 90,
+          "sx": 1,
+          "sy": 1,
+          "rot": 0,
+          "opacity": 1
+        },
+        {
+          "f": 10,
+          "x": 260,
+          "y": 90,
+          "sx": 2,
+          "sy": 2,
+          "rot": 90,
+          "opacity": 0.5
+        }
+      ]
+    }
+  ]
+}
