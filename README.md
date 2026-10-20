@@ -1,4 +1,4 @@
-# @launchreel/motion-kit
+# @launchreel-ai/motion-kit
 
 41 finished, seekable motion components for launch films, plus the headless renderer that photographs them frame by frame.
 
@@ -22,13 +22,13 @@ Finished films made with this vocabulary: [launchreel.ai/examples](https://launc
 ## Install
 
 ```sh
-npm install @launchreel/motion-kit
+npm install @launchreel-ai/motion-kit
 ```
 
 ## Use it
 
 ```js
-import { title } from "@launchreel/motion-kit/vocab";
+import { title } from "@launchreel-ai/motion-kit/vocab";
 
 const stage = document.querySelector("#stage");           // a 1920x1080 box
 const t = title(stage, {
@@ -40,7 +40,7 @@ slider.oninput = () => t.seek(Number(slider.value));      // pure: any ms, any o
 console.log(t.duration_ms);
 ```
 
-Prefer a script tag? `@launchreel/motion-kit/motion-vocab.js` is one classic script that defines the global `MV` (`MV.title(...)`, `MV.typeInput(...)`, ...). The machine-readable catalogue (name, intent tags, duration range, inputs, when to use) is `@launchreel/motion-kit/catalogue.json`.
+Prefer a script tag? `@launchreel-ai/motion-kit/motion-vocab.js` is one classic script that defines the global `MV` (`MV.title(...)`, `MV.typeInput(...)`, ...). The machine-readable catalogue (name, intent tags, duration range, inputs, when to use) is `@launchreel-ai/motion-kit/catalogue.json`.
 
 ## Render to video
 
@@ -56,10 +56,10 @@ Pages implement a tiny frame protocol (`window.__meta`, `window.__load`, `window
 
 | Import | What |
 | --- | --- |
-| `@launchreel/motion-kit` | frame protocol, motion keys, player, easing, fitting (browser-safe) |
-| `@launchreel/motion-kit/vocab` | the 41 components and their catalogue |
-| `@launchreel/motion-kit/node` | render, compare, encode (Node) |
-| `@launchreel/motion-kit/motion-vocab.js` | the vocabulary as one classic script (global `MV`) |
+| `@launchreel-ai/motion-kit` | frame protocol, motion keys, player, easing, fitting (browser-safe) |
+| `@launchreel-ai/motion-kit/vocab` | the 41 components and their catalogue |
+| `@launchreel-ai/motion-kit/node` | render, compare, encode (Node) |
+| `@launchreel-ai/motion-kit/motion-vocab.js` | the vocabulary as one classic script (global `MV`) |
 
 ## Links
 
@@ -75,7 +75,7 @@ MIT licence.
 
 ## 中文
 
-**@launchreel/motion-kit** 是 41 个可逐帧定位的动效组件，专为产品发布片准备：文字输入打字、大标题动效、字幕、Logo 出场、转场、设备外框、数据展示、时间线、能量汇聚和图解。外加一个无头渲染器，把页面按帧拍成视频。
+**@launchreel-ai/motion-kit** 是 41 个可逐帧定位的动效组件，专为产品发布片准备：文字输入打字、大标题动效、字幕、Logo 出场、转场、设备外框、数据展示、时间线、能量汇聚和图解。外加一个无头渲染器，把页面按帧拍成视频。
 
 - **纯函数、结果确定。** `seek(ms)` 不依赖时钟和 `requestAnimationFrame`，同一毫秒永远得到同样的画面，可以任意顺序、任意机器逐帧渲染。
 - **品牌色驱动。** 一个品牌色加明暗舞台决定全部配色，字号遵循固定字阶。
